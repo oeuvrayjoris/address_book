@@ -10,7 +10,7 @@
 ## Setup
 
 ```sh
-$ git clone https://github.com/oeuvrayjoris/address_book
+$ git clone https://github.com/oeuvrayjoris/address_book.git
 $ cd address_book
 $ g++ main.cpp -o main
 $ ./main
