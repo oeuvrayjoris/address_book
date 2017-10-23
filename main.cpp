@@ -9,7 +9,6 @@
 #include "headers/menu.hpp"
 
 int main() {
-
 	Book book;
 	Menu menu;
 

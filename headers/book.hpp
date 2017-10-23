@@ -1,8 +1,6 @@
 class Book {
 
 public:
-  // Getters
-
   // Methods
   void print() {
     std::string line, content;
@@ -217,6 +215,7 @@ public:
   }
 
 private:
+  // Attr
   unsigned int n_contacts; // number of contacts in the book
 
 };

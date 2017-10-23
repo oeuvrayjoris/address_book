@@ -3,6 +3,7 @@
 class Menu {
 
 public:
+     // Methods
      void setChoice() {
           while (!(std::cin >> choice) || choice < 1 || choice > 6) {
                std::cout << "Choice not found. Retry: ";  
@@ -27,6 +28,7 @@ public:
      }
 
 private:
+     // Attr
      unsigned int choice;
 
 };

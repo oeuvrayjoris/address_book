@@ -33,7 +33,7 @@ public:
     address.setCountry(newCountry);
   }
 
-  // Methods
+  // Constr
   Person() {
     first_name = "No first name";
     last_name = "No last name";
@@ -47,6 +47,7 @@ public:
     address = Address(myNum, myStreet, myPostalCode, myCity, myCountry);
   }
 
+  // Methods
   void printAddress() {
     std::cout << address.getAddress() << std::endl;
   }

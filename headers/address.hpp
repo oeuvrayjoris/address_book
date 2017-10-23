@@ -34,6 +34,8 @@ public:
 		std::cout << std::to_string(num) + " " + street + " - " + postal_code + " " + city + ", " + country << std::endl;
 	}
 
+
+	// Constr
 	Address() {
 		num = 0;
 		street = "";
