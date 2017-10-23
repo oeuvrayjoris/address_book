@@ -1,13 +1,11 @@
 # address_book
 
-Address book.
+## Features
 
-## Fonctionalities
-
-- Add
+- Add a new person
 - Edit
 - Remove
-- Export (as a text file)
+- Export
 
 ## Setup
 
