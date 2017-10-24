@@ -17,7 +17,10 @@ public:
 
       std::cout << std::endl;
       std::cout << "*** ADDRESS BOOK (" << n_contacts << ") ***" << std::endl;
-      std::cout << content;
+      if(n_contacts > 0)
+        std::cout << content;
+      else
+        std::cout << "Empty..." << std::endl;
 
       myfile.close();
     }
@@ -117,7 +120,7 @@ public:
     person = getPersonById(id);
 
     std::cout << std::endl;
-    std::cout << "*** Choose field to edit ***" << std::endl;
+    std::cout << "*** Field to edit ***" << std::endl;
     std::cout << "1 - First name" << std::endl;
     std::cout << "2 - Last name" << std::endl;
     std::cout << "3 - Age" << std::endl;
@@ -129,6 +132,8 @@ public:
       std::cin.clear();
       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
+
+    std::cout << std::endl;
 
     switch(choice) {
       case 1:
