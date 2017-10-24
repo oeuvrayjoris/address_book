@@ -104,49 +104,75 @@ public:
 
   void edit() {
     std::string first_name, last_name, street, postalCode, city, country;
-    int age, number, id;
+    int age, number, id, choice;
     Person person;
 
     std::cout << std::endl;
     std::cout << "*** EDIT A PERSON ***" << std::endl;
-    std::cout << "Enter person's id : ";
+    std::cout << "Enter id : ";
     std::cin >> id;
-    std::cin.clear();  
+    std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-    std::cout << "First name : ";
-    std::cin >> first_name;
+    person = getPersonById(id);
 
-    std::cout << "Last name : ";
-    std::cin >> last_name;
+    std::cout << std::endl;
+    std::cout << "*** Choose field to edit ***" << std::endl;
+    std::cout << "1 - First name" << std::endl;
+    std::cout << "2 - Last name" << std::endl;
+    std::cout << "3 - Age" << std::endl;
+    std::cout << "4 - Address" << std::endl;
+    std::cout << "Choice : ";
 
-    std::cout << "Age : ";
-    std::cin >> age;
-    std::cin.clear();  
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    while (!(std::cin >> choice) || choice < 1 || choice > 4) {
+      std::cout << "Choice not found. Retry: ";  
+      std::cin.clear();
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
 
-    std::cout << "Address : " << std::endl;
-    std::cout << " - Number : ";
-    std::cin >> number;
-    std::cin.clear();  
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    switch(choice) {
+      case 1:
+        std::cout << "First name : ";
+        std::cin >> first_name;
+        person.setFirstName(first_name);
+      break;
 
-    std::cout << " - Street : ";
-    std::cin >> street;
+      case 2:
+        std::cout << "Last name : ";
+        std::cin >> last_name;
+        person.setLastName(last_name);
+      break;
 
-    std::cout << " - Postal Code : ";
-    std::cin >> postalCode;
+      case 3:
+        std::cout << "Age : ";
+        std::cin >> age;
+        person.setAge(age);
+        std::cin.clear();  
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      break;
 
-    std::cout << " - City : ";
-    std::cin >> city;
+      case 4:
+        std::cout << "Address : " << std::endl;
+        std::cout << " - Number : ";
+        std::cin >> number;
+        std::cin.clear();  
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-    std::cout << " - Country : ";
-    std::cin >> country;
+        std::cout << " - Street : ";
+        std::getline(std::cin, street);
 
-    person.setFirstName(first_name);
-    person.setLastName(last_name);
-    person.setAge(age);
-    person.setAddress(number, street, postalCode, city, country);
+        std::cout << " - Postal Code : ";
+        std::getline(std::cin, postalCode);
+
+        std::cout << " - City : ";
+        std::getline(std::cin, city);
+
+        std::cout << " - Country : ";
+        std::getline(std::cin, country);
+
+        person.setAddress(number, street, postalCode, city, country);
+      break;
+    }
 
     saveId(person, id);
   }
@@ -161,7 +187,7 @@ public:
     file.open("address_book.txt");
     std::ofstream temp;
     temp.open("temp.txt");
-    std::cout << "Enter person's id : ";
+    std::cout << "Enter id : ";
     std::cin >> id_user;
 
     while(getline(file,line)) {
@@ -242,6 +268,36 @@ public:
     file.close();
     std::remove("address_book.txt");
     std::rename("temp.txt","address_book.txt");
+  }
+
+  Person getPersonById(int id_user) {
+    Person person;
+    int id=1;
+    std::string line, person_line, word;
+    std::ifstream file;
+    std::string person_array[8];
+
+    file.open("address_book.txt");
+
+    while(getline(file,line)) {
+      if(id == id_user) {
+        person_line = line;
+      }
+      id++;
+    }
+
+    file.close();
+    std::istringstream ss(person_line);
+    id = 0;
+
+    while(std::getline(ss, word, ',')) {
+        person_array[id] = word;
+        id++;
+    }
+
+    person = Person(person_array[0], person_array[1], std::stoi(person_array[2]), std::stoi(person_array[3]), person_array[4], person_array[5], person_array[6], person_array[7]);
+
+    return person;
   }
 
 private:
