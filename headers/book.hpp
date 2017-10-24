@@ -56,29 +56,43 @@ public:
   }
 
   void add() {
-    std::string first_name, last_name, street, postalCode, city, country;
+    std::string first_name, last_name, street, postalCode, city, country, name, title;
     int age, number;
     Person newPerson;
 
     std::cout << std::endl;
     std::cout << "*** ADD A NEW PERSON ***" << std::endl;
+    std::cin.clear();  
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
     std::cout << "First name : ";
-    std::cin >> first_name;
+    std::getline(std::cin, first_name);
+
     std::cout << "Last name : ";
-    std::cin >> last_name;
+    std::getline(std::cin, last_name);
+
     std::cout << "Age : ";
     std::cin >> age;
+    std::cin.clear();  
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
     std::cout << "Address : " << std::endl;
     std::cout << " - Number : ";
     std::cin >> number;
+    std::cin.clear();  
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
     std::cout << " - Street : ";
-    std::cin >> street;
+    std::getline(std::cin, street);
+
     std::cout << " - Postal Code : ";
-    std::cin >> postalCode;
+    std::getline(std::cin, postalCode);
+
     std::cout << " - City : ";
-    std::cin >> city;
+    std::getline(std::cin, city);
+
     std::cout << " - Country : ";
-    std::cin >> country;
+    std::getline(std::cin, country);
 
     newPerson.setFirstName(first_name);
     newPerson.setLastName(last_name);
@@ -97,21 +111,35 @@ public:
     std::cout << "*** EDIT A PERSON ***" << std::endl;
     std::cout << "Enter person's id : ";
     std::cin >> id;
+    std::cin.clear();  
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
     std::cout << "First name : ";
     std::cin >> first_name;
+
     std::cout << "Last name : ";
     std::cin >> last_name;
+
     std::cout << "Age : ";
     std::cin >> age;
+    std::cin.clear();  
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
     std::cout << "Address : " << std::endl;
     std::cout << " - Number : ";
     std::cin >> number;
+    std::cin.clear();  
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
     std::cout << " - Street : ";
     std::cin >> street;
+
     std::cout << " - Postal Code : ";
     std::cin >> postalCode;
+
     std::cout << " - City : ";
     std::cin >> city;
+
     std::cout << " - Country : ";
     std::cin >> country;
 
@@ -159,6 +187,8 @@ public:
 
     std::cout << "Enter file's name : ";
     std::cin >> filename;
+    std::cin.clear();  
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::ofstream newfile;
     newfile.open(filename + ".txt");

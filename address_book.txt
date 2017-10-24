@@ -1,5 +1,2 @@
-Joris,Oeuvray,20,7,Copernic,77420,Champs-sur-Marne,France,
-Rachid,Ben,56,56,Lolilol,56777,Momytr,Algérie,
-Mathieu,Kimoko,24,56,Verte,92049,Créteil,France,
-Délio,Elana,21,56,Lol,56788,Martinique,France,
-Jordan,Vilsaint,21,56,gejiogs,75000,Paris,France,
+Joris,Oeuvray,20,56,Lol,75000,Paris,France,
+Délio,Elana,21,3,Rue,78648,Champs-sur-Marne,France,

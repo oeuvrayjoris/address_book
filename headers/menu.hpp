@@ -5,7 +5,7 @@ class Menu {
 public:
      // Methods
      void setChoice() {
-          while (!(std::cin >> choice) || choice < 1 || choice > 6) {
+          while (!(std::cin >> choice) || choice < 1 || choice > 5) {
                std::cout << "Choice not found. Retry: ";  
                std::cin.clear();  
                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
