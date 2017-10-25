@@ -13,6 +13,8 @@ int main() {
 	Book book;
 	Menu menu;
 
+
+	/* Infinity loop */
 	for(;;) {
 		book.print();
 		menu.print();
